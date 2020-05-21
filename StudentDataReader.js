@@ -1,9 +1,8 @@
 const Student = require("./Student");
 const fs = require("fs");
-const path = require("path");
 
 module.exports = class StudentDataReader {
-    constructor(fileName = path.join(__dirname, "JSONData/Students.json")) {
+    constructor(fileName) {
         this.fileName = fileName;
     }
 

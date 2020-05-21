@@ -1,14 +1,16 @@
 const StudentDataReader = require("./StudentDataReader");
 const TeacherDataReader = require("./TeacherDataReader");
 const fs = require("fs");
+const path = require("path");
 
-let _studentDataSet = new StudentDataReader();
-let _teacherDataSet = new TeacherDataReader();
+const baseFilePath = path.join(__dirname, "JSONData");
 
-if(!fs.existsSync("./JSONData")) {
-    fs.mkdirSync("./JSONData")
+if (!fs.existsSync(baseFilePath)) {
+    fs.mkdirSync(baseFilePath)
 }
 
+let _studentDataSet = new StudentDataReader(path.join(baseFilePath, "Students.json"));
+let _teacherDataSet = new TeacherDataReader(path.join(baseFilePath, "Teachers.json"));
 
 _teacherDataSet.generateRandomTeachers();
 let teacherIds = _teacherDataSet.getArrayFromFile().map(teacher => teacher.id);
