@@ -1,6 +1,7 @@
 const readline = require('readline');
 const path = require("path");
 const { StudentDataReader, TeacherDataReader } = require("./DataLayer");
+const { StudentService } = require("./Services");
 const { Student, Teacher } = require("./Models");
 
 const rl = readline.createInterface({
@@ -23,6 +24,7 @@ async function Program() {
     const baseFilePath = path.join(__dirname, "../", "JSONData");
     const _studentDataReader = new StudentDataReader(path.join(baseFilePath, "Students.json"));
     const _teacherDataReader = new TeacherDataReader(path.join(baseFilePath, "Teachers.json"));
+    const _studentService = new StudentService(_studentDataReader, _teacherDataReader);
 
     // console.log(_studentDataReader.getArrayFromFile());
     // console.log(_teacherDataReader.getArrayFromFile());
@@ -57,7 +59,7 @@ async function Program() {
                             parsedGrades,
                             teacherId
                         );
-                        _studentDataReader.addStudent(newStudent);
+                        _studentService.addStudent(newStudent);
                         break;
                     default:
                         console.log("Going back to main menu");
