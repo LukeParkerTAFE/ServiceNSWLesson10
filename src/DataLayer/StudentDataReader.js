@@ -1,4 +1,4 @@
-const Student = require("./Student");
+const Student = require("../Models/Student");
 const fs = require("fs");
 
 module.exports = class StudentDataReader {

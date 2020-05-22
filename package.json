@@ -4,7 +4,9 @@
   "description": "",
   "main": "File.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "console-app": "node .\\src\\ConsoleApp.js",
+    "generate": "node .\\src\\Generate.js"
   },
   "repository": {
     "type": "git",

@@ -1,4 +1,4 @@
-const Teacher = require("./Teacher");
+const Teacher = require("../Models/Teacher");
 const fs = require("fs");
 
 module.exports = class TeacherDataReader {

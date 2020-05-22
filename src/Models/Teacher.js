@@ -1,4 +1,5 @@
 const Person = require("./Person");
+const uuid = require("uuid");
 
 class Teacher extends Person {
     constructor(firstName, lastName, age, id = uuid.v4()) {

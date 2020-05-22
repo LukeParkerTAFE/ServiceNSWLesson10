@@ -1,5 +1,6 @@
 const Person = require("./Person");
-const random = require("./Random");
+const random = require("../Common/Random");
+const uuid = require("uuid");
 
 class Student extends Person {
     constructor(firstName, lastName, age, grades, teacherId, id = uuid.v4()) {

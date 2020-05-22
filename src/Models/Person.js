@@ -1,4 +1,4 @@
-const random = require("./Random");
+const random = require("../Common/Random");
 const uuid = require("uuid");
 
 class Person {

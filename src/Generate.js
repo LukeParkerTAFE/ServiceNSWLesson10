@@ -1,12 +1,15 @@
-const StudentDataReader = require("./StudentDataReader");
-const TeacherDataReader = require("./TeacherDataReader");
+// const DataLayer = require("./DataLayer")
+// const StudentDataReader = DataLayer.StudentDataReader
+// const TeacherDataReader = DataLayer.TeacherDataReader
+
+const { StudentDataReader, TeacherDataReader } = require("./DataLayer");
 const fs = require("fs");
 const path = require("path");
 
-const baseFilePath = path.join(__dirname, "JSONData");
+const baseFilePath = path.join(__dirname, "../", "JSONData");
 
 if (!fs.existsSync(baseFilePath)) {
-    fs.mkdirSync(baseFilePath)
+    fs.mkdirSync(baseFilePath);
 }
 
 let _studentDataSet = new StudentDataReader(path.join(baseFilePath, "Students.json"));
