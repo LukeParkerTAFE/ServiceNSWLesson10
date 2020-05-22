@@ -38,10 +38,11 @@ async function Program() {
         switch (userInput) {
             case "1":
                 console.log("[1] Add Student");
-                console.log("[2] Search For Student");
-                console.log("[3] Update Student");
-                console.log("[4] Delete Student");
-                console.log("[5] Go Back");
+                console.log("[2] Search Students");
+                console.log("[3] Search For Student");
+                console.log("[4] Update Student");
+                console.log("[5] Delete Student");
+                console.log("[6] Go Back");
                 let userInputStudent = await askQuestion("Select an option from above: ");
                 switch (userInputStudent) {
                     case "1":
@@ -60,6 +61,11 @@ async function Program() {
                             teacherId
                         );
                         _studentService.addStudent(newStudent);
+                        break;
+                    case "2":
+                        let searchTerm = await askQuestion("Enter search term: ");
+                        let matchingStudents = _studentService.searchByName(searchTerm);
+                        console.log(matchingStudents);
                         break;
                     default:
                         console.log("Going back to main menu");
