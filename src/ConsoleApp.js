@@ -9,12 +9,11 @@ const rl = readline.createInterface({
     output: process.stdout,
 });
 
-function askQuestion(question, defaultValue) {
+function askQuestion(question) {
     return new Promise((resolve, reject) => {
         rl.question(question, (ans) => {
             resolve(ans);
         })
-        rl.write(defaultValue)
     });
 }
 
