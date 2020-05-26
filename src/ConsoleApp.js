@@ -9,13 +9,12 @@ const rl = readline.createInterface({
     output: process.stdout,
 });
 
-function askQuestion(question) {
-    let answer;
-
+function askQuestion(question, defaultValue) {
     return new Promise((resolve, reject) => {
         rl.question(question, (ans) => {
             resolve(ans);
         })
+        rl.write(defaultValue)
     });
 }
 
@@ -25,9 +24,6 @@ async function Program() {
     const _studentDataReader = new StudentDataReader(path.join(baseFilePath, "Students.json"));
     const _teacherDataReader = new TeacherDataReader(path.join(baseFilePath, "Teachers.json"));
     const _studentService = new StudentService(_studentDataReader, _teacherDataReader);
-
-    // console.log(_studentDataReader.getArrayFromFile());
-    // console.log(_teacherDataReader.getArrayFromFile());
 
     let shouldLoop = true;
     while (shouldLoop) {
@@ -39,10 +35,9 @@ async function Program() {
             case "1":
                 console.log("[1] Add Student");
                 console.log("[2] Search Students");
-                console.log("[3] Search For Student");
-                console.log("[4] Update Student");
-                console.log("[5] Delete Student");
-                console.log("[6] Go Back");
+                console.log("[3] Update Student");
+                console.log("[4] Delete Student");
+                console.log("[5] Go Back");
                 let userInputStudent = await askQuestion("Select an option from above: ");
                 switch (userInputStudent) {
                     case "1":

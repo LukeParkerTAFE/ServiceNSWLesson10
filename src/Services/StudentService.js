@@ -50,10 +50,6 @@ module.exports = class StudentService {
             }
         }
         return matchingNames;
-
-
-        // return this.studentDataReader.getArrayFromFile()
-        //     .filter(student => `${student.firstName} ${student.lastName}`.toLowerCase().includes(searchTerm));
     }
 
     doesTeacherExist(id) {
